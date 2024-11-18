@@ -196,6 +196,7 @@ void loop() {
       for (int i = 0; i<96; i++) {
         slope = (pgm_read_word_near(Slopes+i))/1000.0000;
         intercept = (pgm_read_word_near(Intercepts+i))/1000.0000;
+        //CHANGE THE +/- SIGN DEPENDING ON INTERCEPT VALUES
         CurrentTemp = CalcTemp(ReadPin(i))*slope-intercept;
         
         if (CurrentTemp<MinTemp) {
